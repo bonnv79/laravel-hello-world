@@ -7,12 +7,13 @@
 
   <title>Laravel Home</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+  </script>
 
-  <!-- Styles -->
   <style>
-  /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%
@@ -22,21 +23,20 @@
     margin: 0;
     font-family: 'Nunito', sans-serif;
   }
-
-  .center {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
   </style>
 </head>
 
 <body class="antialiased">
-  <div
-    class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    <div class="center">
-      <h1>{{ $name }}</h1>
+  <x-menu />
 
+  <div class="container ">
+    <div class="row text-center">
+      <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">
+        <h1>{{ $name }}</h1>
+      </a>
+    </div>
+
+    <div class="row">
       @for($counter=0; $counter
       <=5; $counter++) <x-hello-world class='danger' id='myid' title="Readerstacks" :counter-value="$counter">
         <span>My Child </span>
@@ -51,7 +51,6 @@
 
         </x-hello-world>
         @endfor
-
     </div>
   </div>
 </body>

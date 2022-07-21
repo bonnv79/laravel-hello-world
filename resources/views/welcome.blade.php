@@ -9,6 +9,7 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
   <!-- Styles -->
   <style>
@@ -361,38 +362,38 @@
   @media (prefers-color-scheme:dark) {
     .dark\:bg-gray-800 {
       --bg-opacity: 1;
-      background-color: #2d3748;
-      background-color: rgba(45, 55, 72, var(--bg-opacity))
+      background-color: #2d3748 !important;
+      background-color: rgba(45, 55, 72, var(--bg-opacity)) !important;
     }
 
     .dark\:bg-gray-900 {
       --bg-opacity: 1;
-      background-color: #1a202c;
-      background-color: rgba(26, 32, 44, var(--bg-opacity))
+      background-color: #1a202c !important;
+      background-color: rgba(26, 32, 44, var(--bg-opacity)) !important;
     }
 
     .dark\:border-gray-700 {
       --border-opacity: 1;
-      border-color: #4a5568;
-      border-color: rgba(74, 85, 104, var(--border-opacity))
+      border-color: #4a5568 !important;
+      border-color: rgba(74, 85, 104, var(--border-opacity)) !important;
     }
 
     .dark\:text-white {
       --text-opacity: 1;
-      color: #fff;
-      color: rgba(255, 255, 255, var(--text-opacity))
+      color: #fff !important;
+      color: rgba(255, 255, 255, var(--text-opacity)) !important;
     }
 
     .dark\:text-gray-400 {
       --text-opacity: 1;
-      color: #cbd5e0;
-      color: rgba(203, 213, 224, var(--text-opacity))
+      color: #cbd5e0 !important;
+      color: rgba(203, 213, 224, var(--text-opacity)) !important;
     }
 
     .dark\:text-gray-500 {
       --tw-text-opacity: 1;
-      color: #6b7280;
-      color: rgba(107, 114, 128, var(--tw-text-opacity))
+      color: #6b7280 !important;
+      color: rgba(107, 114, 128, var(--tw-text-opacity)) !important;
     }
   }
   </style>
@@ -405,6 +406,9 @@
 </head>
 
 <body class="antialiased">
+  <x-menu />
+  <x-breadcrumb />
+
   <div
     class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
     <!-- @if (Route::has('login'))
