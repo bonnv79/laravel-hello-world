@@ -10903,4 +10903,9 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-
+.app-footer {
+  text-align: right;
+  font-size: 0.8rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}

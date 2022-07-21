@@ -23,18 +23,20 @@
     margin: 0;
     font-family: 'Nunito', sans-serif;
   }
+
+  .app-title {
+    margin: 1.5rem;
+    text-align: center;
+    font-weight: bolder;
+  }
   </style>
 </head>
 
 <body class="antialiased">
   <x-menu />
 
-  <div class="container ">
-    <div class="row text-center">
-      <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">
-        <h1>{{ $name }}</h1>
-      </a>
-    </div>
+  <div class="container">
+    <h1 class="app-title">{{ $name }}</h1>
 
     <div class="row">
       @for($counter=0; $counter
@@ -53,6 +55,8 @@
         @endfor
     </div>
   </div>
+
+  <x-footer />
 </body>
 
 </html>

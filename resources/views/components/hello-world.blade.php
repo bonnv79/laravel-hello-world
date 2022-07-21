@@ -1,4 +1,4 @@
-<div style="width: 50%; padding: 8px;">
+<div style="width: 33.33%; padding: 8px;">
   <div {{ $attributes->merge(["class"=>"card"]) }}>
     <img src="{{ asset('img/laravel.png') }}" class="card-img-top" alt="Img">
     <div class="card-body">
