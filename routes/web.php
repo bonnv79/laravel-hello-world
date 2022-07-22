@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $posts = DB::table('posts')->select('id','title','description')->get();
-    Debugbar::info($posts);
+    // Debugbar::info($posts);
     return view('home', ['posts' => $posts]);
 });
 
