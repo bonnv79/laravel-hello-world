@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class Menu extends Component
 {
+    public $search; // new property
     /**
      * Create a new component instance.
      *

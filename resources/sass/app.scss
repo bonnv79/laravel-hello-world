@@ -1,1 +1,9 @@
-@import '~bootstrap';
+// @import '~bootstrap';
+
+.app-title-sass {
+  color: #7c7c7c;
+
+  &:hover {
+    color: #656565;
+  }
+}

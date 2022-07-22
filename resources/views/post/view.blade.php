@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Laravel</title>
+  <title>Create Post</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,23 +41,22 @@
 
 <body class="antialiased">
   <x-menu />
+  <x-breadcrumb :menu="config('constants.BREADCRUMB_PATH.view')" />
 
   <div class="container">
-    @if (count($posts) < 1) <h2 class="not-found-data">Not Found Data</h2>
-      @else
-      <div class="row">
-        @foreach($posts as $item)
-        <x-hello-world class='danger' :id='$item->id' :post-id='$item->id' :title="$item->title">
-          {{$item->description}}
+    <h1>View Post</h1>
 
-          <x-slot name='anotherslot'>
-            Wow! i am another slot
-          </x-slot>
-
-        </x-hello-world>
-        @endforeach
+    <div class="card" style="width: 100%;">
+      <img style="height: 30vh;" src="{{ asset('img/laravel.png') }}" class="card-img-top" alt="Img">
+      <div class="card-body">
+        <h3 class="card-title">
+          {{ $post->title }}
+        </h3>
+        <p class="card-text">
+          {{ $post->description }}
+        </p>
       </div>
-      @endif
+    </div>
   </div>
 
   <x-footer />

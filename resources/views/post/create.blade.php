@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Laravel</title>
+  <title>Create Post</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -41,23 +41,23 @@
 
 <body class="antialiased">
   <x-menu />
+  <x-breadcrumb :menu="config('constants.BREADCRUMB_PATH.create')" />
 
   <div class="container">
-    @if (count($posts) < 1) <h2 class="not-found-data">Not Found Data</h2>
-      @else
-      <div class="row">
-        @foreach($posts as $item)
-        <x-hello-world class='danger' :id='$item->id' :post-id='$item->id' :title="$item->title">
-          {{$item->description}}
+    <h1>Create Post</h1>
 
-          <x-slot name='anotherslot'>
-            Wow! i am another slot
-          </x-slot>
-
-        </x-hello-world>
-        @endforeach
+    <form action="/posts/create" method="post">
+      @csrf
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Input..." name="title">
       </div>
-      @endif
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
 
   <x-footer />

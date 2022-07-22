@@ -14,9 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', ['name' => 'Home Page']);
+    $posts = DB::table('posts')->select('id','title','description')->get();
+    Debugbar::info($posts);
+    return view('home', ['posts' => $posts]);
 });
 
 Route::get('/welcome', function () {
     return view('welcome', ['name' => 'Welcome Page']);
 });
+
+Route::get('/posts/create', [App\Http\Controllers\Api\PostController::class, 'create']);
+
+Route::post('/posts/create', [App\Http\Controllers\Api\PostController::class, 'store']);
+
+Route::get('/posts/delete/{id}', [App\Http\Controllers\Api\PostController::class, 'delete']);
+
+Route::get('/posts/update/{id}', [App\Http\Controllers\Api\PostController::class, 'edit']);
+
+Route::post('/posts/update/{id}', [App\Http\Controllers\Api\PostController::class, 'update']);
+
+Route::get('/posts/view/{id}', [App\Http\Controllers\Api\PostController::class, 'view']);
+
+Route::get('/posts', [App\Http\Controllers\Api\PostController::class, 'search']);

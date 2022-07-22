@@ -7,16 +7,16 @@ use Illuminate\View\Component;
 class HelloWorld extends Component
 {
     public $title; // new property
-    public $counterValue;// new property
+    public $postId;// new property
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $counterValue)
+    public function __construct($title, $postId)
     {
         $this->title=$title;
-        $this->counterValue=$counterValue;
+        $this->postId=$postId;
     }
 
     /**
