@@ -7,7 +7,7 @@
     @endphp
 
     @for($x = 0; $x < $size; $x+=1) <li class="breadcrumb-item active" aria-current="page">
-      @if($x < $size -1) <a href="{{ url('/') }}">{{$menu[$x]['name']}}</a>
+      @if($x < $size -1) <a href="{{ url($menu[$x]['path']) }}">{{$menu[$x]['name']}}</a>
         @else {{$menu[$x]['name']}}
         @endif
         </li>

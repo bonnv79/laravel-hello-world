@@ -32,3 +32,29 @@
   justify-content: center;
   align-items: center;
 }
+
+.table-scroll {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+
+  thead {
+    position: sticky;
+    top: 0;
+    background: #bababa;
+  }
+
+  td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .center {
+    text-align: center;
+  }
+}

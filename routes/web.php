@@ -23,6 +23,8 @@ Route::get('/welcome', function () {
     return view('welcome', ['name' => 'Welcome Page']);
 });
 
+Route::get('/posts/list', [App\Http\Controllers\Api\PostController::class, 'list']);
+
 Route::get('/posts/create', [App\Http\Controllers\Api\PostController::class, 'create']);
 
 Route::post('/posts/create', [App\Http\Controllers\Api\PostController::class, 'store']);

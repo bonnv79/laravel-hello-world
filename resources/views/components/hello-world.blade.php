@@ -19,10 +19,10 @@
       <!-- <h3 class="slot3">
         {{$anotherslot}}
       </h3> -->
-      <div class="text-end">
+      <!-- <div class="text-end">
         <a href="{{ url($urlUpdate) }}" class="btn btn-primary">Edit</a>
         <a href="{{ url($url) }}" class="btn btn-danger">Delete</a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

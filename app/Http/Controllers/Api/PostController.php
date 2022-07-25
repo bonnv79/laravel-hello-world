@@ -44,7 +44,7 @@ class PostController extends Controller
         // return new PostResource($posts);
         // return view('post.create', ['res' => new PostResource($posts)]);
 
-        return redirect('/');
+        return redirect('/posts/list');
     }
 
     /**
@@ -85,7 +85,7 @@ class PostController extends Controller
         // dd($post, $data);
         $res = $post->update($data);
         // return response(null, 204);
-        return redirect('/');
+        return redirect('/posts/list');
     }
 
     /**
@@ -107,7 +107,7 @@ class PostController extends Controller
         $Post->delete();
         
         // return response(null, 204);
-        return redirect('/');
+        return redirect('/posts/list');
     }
 
     public function view($id)
@@ -123,5 +123,11 @@ class PostController extends Controller
         $posts = Post::where('title', 'LIKE', "%$value%")->get();
         // dd($data['search']);
         return view('home', ['posts' => $posts, 'search' => $value]);
+    }
+
+    public function list()
+    {
+        $posts = Post::all();
+        return view('post.list', ['posts' => $posts]);
     }
 }

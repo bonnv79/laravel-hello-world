@@ -14,8 +14,11 @@
           <a class="nav-link active" aria-current="welcome" href="{{ url('/welcome') }}">Welcome</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="welcome" href="{{ url('/posts/create') }}">Create Post</a>
+          <a class="nav-link active" aria-current="welcome" href="{{ url('/posts/list') }}">Post List</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="welcome" href="{{ url('/posts/create') }}">Create Post</a>
+        </li> -->
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
