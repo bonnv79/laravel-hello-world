@@ -4,17 +4,17 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Breadcrumb extends Component
+class Header extends Component
 {
-    public $menu; // new property
+    public $title; // new property
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($menu = [])
+    public function __construct($title = 'Laravel')
     {
-        $this->menu=$menu;
+        $this->title=$title;
     }
 
     /**
@@ -24,6 +24,6 @@ class Breadcrumb extends Component
      */
     public function render()
     {
-        return view('components.breadcrumb');
+        return view('components.header');
     }
 }

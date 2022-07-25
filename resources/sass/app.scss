@@ -7,3 +7,28 @@
     color: #656565;
   }
 }
+
+.app-footer {
+  text-align: right;
+  font-size: 0.8rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: fit-content;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 20px;
+  top: 13px;
+  z-index: 1;
+}
+
+.not-found-data {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}

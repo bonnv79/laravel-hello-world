@@ -13,7 +13,7 @@ class HelloWorld extends Component
      *
      * @return void
      */
-    public function __construct($title, $postId)
+    public function __construct($title = '', $postId = '')
     {
         $this->title=$title;
         $this->postId=$postId;
