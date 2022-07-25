@@ -55,6 +55,10 @@ npm run watch
 
 "php artisan make:component HelloWorld"
 
+- Write in the command to migrate your database
+
+"php artisan migrate"
+
 ```
 
 
