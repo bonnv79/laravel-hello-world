@@ -25,20 +25,20 @@ $size = $posts->lastPage();
       </div>
     </div>
 
-    <div class="table-scroll">
-      <table class="table table-striped table-hover table-sm table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">ID</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col" class="center">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @if (count($posts) < 1) <h2 class="not-found-data">Not Found Data</h2>
-            @else
+    @if (count($posts) < 1) <h2 class="not-found-data">Not Found Data</h2>
+      @else
+      <div class="table-scroll">
+        <table class="table table-striped table-hover table-sm table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col" class="center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
             @foreach($posts as $key => $item)
             @php
             $url = "/posts/delete/$item->id";
@@ -55,11 +55,11 @@ $size = $posts->lastPage();
               </td>
             </tr>
             @endforeach
-            @endif
-        </tbody>
-      </table>
-    </div>
-    <x-pagination :total="$total" :size="$size" :pageSize="$pageSize" :currentPage="$currentPage" />
+          </tbody>
+        </table>
+      </div>
+      <x-pagination :total="$total" :size="$size" :pageSize="$pageSize" :currentPage="$currentPage" />
+      @endif
   </div>
 
   <x-footer />
