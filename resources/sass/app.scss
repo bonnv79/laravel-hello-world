@@ -15,7 +15,6 @@
   padding-bottom: 0.8rem;
   position: fixed;
   bottom: 0;
-  right: 0;
   width: fit-content;
 }
 
@@ -56,5 +55,20 @@
 
   .center {
     text-align: center;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  .pagination {
+    margin: 0;
+  }
+
+  .total {
+    font-size: .875rem;
   }
 }

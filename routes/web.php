@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $posts = DB::table('posts')->select('id','title','description')->get();
+    $posts = DB::table('posts')->select('id','title','description')->orderBy('id', 'DESC')->get();
     // Debugbar::info($posts);
     return view('home', ['posts' => $posts]);
 });
@@ -23,6 +23,7 @@ Route::get('/welcome', function () {
     return view('welcome', ['name' => 'Welcome Page']);
 });
 
+Route::get('/posts/list/{page}/{pageSize}', [App\Http\Controllers\Api\PostController::class, 'list']);
 Route::get('/posts/list', [App\Http\Controllers\Api\PostController::class, 'list']);
 
 Route::get('/posts/create', [App\Http\Controllers\Api\PostController::class, 'create']);

@@ -12,7 +12,6 @@
   padding-bottom: 0.8rem;
   position: fixed;
   bottom: 0;
-  right: 0;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -54,5 +53,18 @@
 }
 .table .center {
   text-align: center;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.pagination-container .pagination {
+  margin: 0;
+}
+.pagination-container .total {
+  font-size: 0.875rem;
 }
 

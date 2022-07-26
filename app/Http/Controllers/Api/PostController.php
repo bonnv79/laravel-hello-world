@@ -120,14 +120,24 @@ class PostController extends Controller
     public function search(Request $request){
         $data = $request->all();
         $value = $data['search'];
-        $posts = Post::where('title', 'LIKE', "%$value%")->get();
+        $posts = Post::where('title', 'LIKE', "%$value%")->orderBy('id', 'DESC')->get();
         // dd($data['search']);
         return view('home', ['posts' => $posts, 'search' => $value]);
     }
 
-    public function list()
+    public function list($page = 1, $pageSize = 10)
     {
-        $posts = Post::all();
+        $intPage = (int)$page;
+        $intPageSize = (int)$pageSize;
+        
+        $posts = Post::where('id', '>', 0)->orderBy('id', 'DESC')->paginate(
+            $perPage = $intPageSize, $columns = ['*'], $pageName = 'posts', $currentPage = $intPage
+        ); 
+        
+        // dd($posts, $intPage,  $intPageSize);
         return view('post.list', ['posts' => $posts]);
+
+        // $posts = Post::all();
+        // return view('post.list', ['posts' => $posts]);
     }
 }

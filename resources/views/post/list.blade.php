@@ -3,6 +3,10 @@
 
 @php
 $title = 'Post List';
+$total = $posts->total();
+$pageSize = $posts->perPage();
+$currentPage = $posts->currentPage();
+$size = $posts->lastPage();
 @endphp
 
 <x-header :title="$title" />
@@ -41,7 +45,7 @@ $title = 'Post List';
             $urlUpdate = "/posts/update/$item->id";
             @endphp
             <tr>
-              <th scope="row">{{ $key + 1 }}</th>
+              <th scope="row">{{ ($currentPage - 1) * $pageSize + $key + 1 }}</th>
               <td>{{ $item->id }}</td>
               <td title="{{ $item->title }}">{{ $item->title }}</td>
               <td title="{{ $item->description }}">{{ $item->description }}</td>
@@ -55,6 +59,7 @@ $title = 'Post List';
         </tbody>
       </table>
     </div>
+    <x-pagination :total="$total" :size="$size" :pageSize="$pageSize" :currentPage="$currentPage" />
   </div>
 
   <x-footer />
