@@ -6,7 +6,7 @@
 <body class="antialiased">
   <x-menu />
 
-  <div class="container">
+  <div class="container app-body">
     @if (count($posts) < 1) <h2 class="not-found-data">Not Found Data</h2>
       @else
       <div class="row">
