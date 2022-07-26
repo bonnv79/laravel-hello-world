@@ -58,6 +58,7 @@ npm run watch
 - Write in the command to migrate your database
 
 "php artisan migrate"
+"php artisan migrate:fresh"
 
 ```
 
