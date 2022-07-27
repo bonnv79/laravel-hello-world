@@ -19,7 +19,7 @@ $title = 'Create Post';
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Input..." name="title"
-          required>
+          required autofocus>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Description</label>

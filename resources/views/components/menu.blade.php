@@ -18,7 +18,7 @@
 
       <form class="d-flex" role="search" action="{{ config('constants.ROUTER_PATH.HOME') }}">
         <input class="form-control me-2 form-control-sm" type="search" placeholder="Search" aria-label="Search"
-          name="search" value="{{ $search }}" autofocus>
+          name="search" value="{{ $search }}" @if($autofocus) autofocus @endif>
         <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
       </form>
     </div>

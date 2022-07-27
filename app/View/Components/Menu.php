@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 class Menu extends Component
 {
     public $search; // new property
+    public $autofocus; // new property
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($search = '')
+    public function __construct($search = '', $autofocus = false)
     {
         $this->search=$search;
+        $this->autofocus=$autofocus;
     }
 
     /**

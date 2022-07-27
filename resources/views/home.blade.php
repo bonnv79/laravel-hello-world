@@ -8,7 +8,7 @@ $title = 'Laravel';
 <x-header :title="$title" />
 
 <body class="antialiased">
-  <x-menu :search="$search" />
+  <x-menu :search="$search" autofocus />
 
   <div class="container app-body">
     @if($search) <h3>Search Results ({{ count($posts) }})</h3>
