@@ -13,18 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get(config('constants.ROUTER_PATH.HOME'), function () {
-    $posts = DB::table('posts')->select('id','title','description')->orderBy('id', 'DESC')->get();
-    // Debugbar::info($posts);
-    return view('home', ['posts' => $posts]);
-});
+// Route::get(config('constants.ROUTER_PATH.HOME'), function () {
+//     $posts = DB::table('posts')->select('id','title','description')->orderBy('id', 'DESC')->get();
+//     // Debugbar::info($posts);
+//     $search = '';
+//     return view('home', compact('posts', 'search'));
+// });
 
-Route::get('/welcome', function () {
-    return view('welcome', ['name' => 'Welcome Page']);
-});
+// Route::get('/welcome', function () {
+//     return view('welcome', ['name' => 'Welcome Page']);
+// });
 
-Route::get('/posts/list/{page}/{pageSize}', [App\Http\Controllers\Api\PostController::class, 'list']);
-Route::get('/posts/list', [App\Http\Controllers\Api\PostController::class, 'list']);
+// Route::get('/posts/list/{page}/{pageSize}', [App\Http\Controllers\Api\PostController::class, 'list']);
+
+// Route::get('/posts/list', [App\Http\Controllers\Api\PostController::class, 'list']);
+
+Route::get(config('constants.ROUTER_PATH.HOME'), [App\Http\Controllers\Api\PostController::class, 'search']);
 
 Route::get(config('constants.ROUTER_PATH.POSTS.ADD'), [App\Http\Controllers\Api\PostController::class, 'create']);
 
@@ -37,7 +41,5 @@ Route::get(config('constants.ROUTER_PATH.POSTS.EDIT').'/{id}', [App\Http\Control
 Route::post(config('constants.ROUTER_PATH.POSTS.EDIT').'/{id}', [App\Http\Controllers\Api\PostController::class, 'update']);
 
 Route::get(config('constants.ROUTER_PATH.POSTS.VIEW').'/{id}', [App\Http\Controllers\Api\PostController::class, 'view']);
-
-Route::get('/posts', [App\Http\Controllers\Api\PostController::class, 'search']);
 
 Route::get(config('constants.ROUTER_PATH.POSTS.LIST'), [App\Http\Controllers\Api\PostController::class, 'filter']);

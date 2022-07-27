@@ -1,7 +1,7 @@
 <?php
 
 $HOME_PATH = '/';
-$LIST_PATH = '/filter';
+$LIST_PATH = '/list';
 $CREATE_PATH = '/posts/create';
 $UPDATE_PATH = '/posts/update';
 $DELETE_PATH = '/posts/delete';

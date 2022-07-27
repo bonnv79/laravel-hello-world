@@ -67,8 +67,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
-
-        return view('post.edit', ['post' => $post]);
+        
+        return view('post.edit', compact('post'));
     }
 
     /**
@@ -114,15 +114,21 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('post.view', ['post' => $post]);
+        return view('post.view', compact('post'));
     }
 
     public function search(Request $request){
-        $data = $request->all();
-        $value = $data['search'];
-        $posts = Post::where('title', 'LIKE', "%$value%")->orderBy('id', 'DESC')->get();
-        // dd($data['search']);
-        return view('home', ['posts' => $posts, 'search' => $value]);
+        $search = $request->input('search');
+        
+        // $posts = Post::where('title', 'LIKE', "%$search%")->orderBy('id', 'DESC')->get();
+        $posts = Post::query()
+                    ->where('title', 'LIKE', "%{$search}%")
+                    ->orWhere('description', 'LIKE', "%{$search}%")
+                    ->orderBy('id', 'DESC')
+                    ->get();
+        
+        // dd($search);
+        return view('home', compact('posts', 'search'));
     }
 
     public function list($page = 1, $pageSize = 10)
