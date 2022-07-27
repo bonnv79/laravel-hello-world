@@ -14,7 +14,7 @@ $title = 'Create Post';
   <div class="container">
     <h1>{{ $title }}</h1>
 
-    <form action="/posts/create" method="post">
+    <form action="{{config('constants.ROUTER_PATH.POSTS.ADD')}}" method="post">
       @csrf
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Title</label>

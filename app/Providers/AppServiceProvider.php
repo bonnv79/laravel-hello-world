@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Blade;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +25,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::directive('shout', function ($string) {
+            return trim($string, '(\'\')');
+        });
+
+        Blade::directive('custom', function ($expression) {
+            eval("\$params = [$expression];");
+            list($param1, $param2, $param3) = $params;
+        
+            // Great coding stuff here
+        });
     }
 }

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light app-menu">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url('/') }}">Laravel</a>
+    <a class="navbar-brand" href="{{ url(config('constants.ROUTER_PATH.HOME')) }}">Laravel</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,27 +14,9 @@
           <a class="nav-link active" aria-current="welcome" href="{{ url('/welcome') }}">Welcome</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link active" aria-current="welcome" href="{{ url('/posts/list') }}">Post List</a>
+          <a class="nav-link active" aria-current="welcome"
+            href="{{ url(config('constants.ROUTER_PATH.POSTS.LIST')) }}">Post List</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link active" aria-current="welcome" href="{{ url('/posts/create') }}">Create Post</a>
-        </li> -->
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li> -->
       </ul>
 
       <form class="d-flex" role="search" action="/posts">
