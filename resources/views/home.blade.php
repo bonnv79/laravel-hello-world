@@ -47,6 +47,13 @@ $size = $posts->lastPage();
 
   </div>
 
+  <button id="scroll-top-btn-id" class="btn btn-link scroll-top-btn-class">
+    <img style="width: 40px;" src="{{ asset('img/up-arrow.png') }}" alt="Img">
+  </button>
+  <button id="scroll-down-btn-id" class="btn btn-link scroll-down-btn-class">
+    <img style="width: 40px;" src="{{ asset('img/down-arrow.png') }}" alt="Img">
+  </button>
+
   <x-footer />
 </body>
 
