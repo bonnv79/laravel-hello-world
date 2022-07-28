@@ -1,4 +1,4 @@
-<div style="width: 33.33%; padding: 8px; position: relative;">
+<div class="card-item">
   @php
   $url = config('constants.ROUTER_PATH.POSTS.REMOVE')."/$postId";
   $urlUpdate = config('constants.ROUTER_PATH.POSTS.EDIT')."/$postId";

@@ -135,3 +135,26 @@
   align-items: center;
   visibility: hidden;
 }
+
+.card-item {
+  padding: 8px;
+  position: relative;
+}
+
+@media (min-width:640px) {
+  .card-item {
+    width: 50%;
+  }
+}
+
+@media (min-width:768px) {
+  .card-item {
+    width: 33.33%;
+  }
+}
+
+@media (min-width:1024px) {
+  .card-item {
+    width: 20%;
+  }
+}

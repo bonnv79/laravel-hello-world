@@ -22,7 +22,18 @@ $options = config('constants.PAGINATION_OPTIONS');
         <span class="total">
           Total: {{$total}}
         </span>
-
+      </li>
+      <li style="padding-right: 8px;" class="page-item">
+        <form class="d-flex" role="search" action="{{config('constants.ROUTER_PATH.POSTS.LIST')}}" method="GET">
+          <input class="visually-hidden" name="search" value="{{ $search }}">
+          <input class="visually-hidden" name="page" value="1">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="pageSize"
+            onchange="this.form.submit()">
+            @foreach($options as $key => $item)
+            <option value="{{ $item }}" @if($item==$pageSize) selected @endif>{{ $item }}</option>
+            @endforeach
+          </select>
+        </form>
       </li>
       <li class="page-item @if($prev < 1) disabled @endif">
         <a class="page-link" href="{{ $firstUrl }}" aria-label="Previous">
@@ -49,18 +60,6 @@ $options = config('constants.PAGINATION_OPTIONS');
           <a class="page-link" href="{{ $lastUrl }}" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
-        </li>
-        <li style="padding-left: 8px;" class="page-item">
-          <form class="d-flex" role="search" action="{{config('constants.ROUTER_PATH.POSTS.LIST')}}" method="GET">
-            <input class="visually-hidden" name="search" value="{{ $search }}">
-            <input class="visually-hidden" name="page" value="1">
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="pageSize"
-              onchange="this.form.submit()">
-              @foreach($options as $key => $item)
-              <option value="{{ $item }}" @if($item==$pageSize) selected @endif>{{ $item }}</option>
-              @endforeach
-            </select>
-          </form>
         </li>
     </ul>
   </nav>
