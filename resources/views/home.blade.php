@@ -50,11 +50,14 @@ $searchTotal = $total;
   <input id="current-page-id" class="visually-hidden" name="page" value="{{ $currentPage }}">
   @endif
 
-  <div class="scroll-root-class">
-    <button id="scroll-top-btn-id" class="scroll-top-btn-class">
+  <div class="scroll-root-class"
+    style="position: fixed; bottom: 8px; right: 8px; z-index: 1; display: flex; flex-direction: column;">
+    <button id="scroll-top-btn-id" class="scroll-top-btn-class"
+      style="background: transparent; border: none; margin: 3px;">
       <img style="width: 40px;" src="{{ asset('img/up-arrow.png') }}" alt="Img">
     </button>
-    <button id="scroll-down-btn-id" class="scroll-down-btn-class">
+    <button id="scroll-down-btn-id" class="scroll-down-btn-class"
+      style="background: transparent; border: none; margin: 3px;">
       <img style="width: 40px;" src="{{ asset('img/down-arrow.png') }}" alt="Img">
     </button>
   </div>

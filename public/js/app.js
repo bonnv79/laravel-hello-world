@@ -57,7 +57,8 @@ function handleViewMoreBtn() {
     var viewMoreElement = document.getElementById("view-more-btn");
 
     if (viewMoreElement) {
-      viewMoreElement.classList.add("view-more-btn-hidden");
+      // viewMoreElement.classList.add("view-more-btn-hidden");
+      viewMoreElement.style.display = "none";
     }
   }
 
