@@ -1,3 +1,3 @@
 <span class="container-fluid app-footer">
-  Version 1.3.8
+  Version 1.3.9
 </span>

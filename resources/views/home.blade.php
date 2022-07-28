@@ -62,7 +62,17 @@ $searchTotal = $total;
     </button>
   </div>
 
-  <div id="app-spinner-id" class="spinner-container">
+  <div id="app-spinner-id" class="spinner-container" style="width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background: #0000006e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;">
     <div class="spinner-border text-light" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
