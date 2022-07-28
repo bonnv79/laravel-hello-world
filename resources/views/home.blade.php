@@ -50,29 +50,16 @@ $searchTotal = $total;
   <input id="current-page-id" class="visually-hidden" name="page" value="{{ $currentPage }}">
   @endif
 
-  <div class="scroll-root-class"
-    style="position: fixed; bottom: 8px; right: 8px; z-index: 1; display: flex; flex-direction: column;">
-    <button id="scroll-top-btn-id" class="scroll-top-btn-class"
-      style="background: transparent; border: none; margin: 3px;">
+  <div class="scroll-root-class">
+    <button id="scroll-top-btn-id">
       <img style="width: 40px;" src="{{ asset('img/up-arrow.png') }}" alt="Img">
     </button>
-    <button id="scroll-down-btn-id" class="scroll-down-btn-class"
-      style="background: transparent; border: none; margin: 3px;">
+    <button id="scroll-down-btn-id">
       <img style="width: 40px;" src="{{ asset('img/down-arrow.png') }}" alt="Img">
     </button>
   </div>
 
-  <div id="app-spinner-id" class="spinner-container" style="width: 100%;
-  height: 100vh;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  background: #0000006e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;">
+  <div id="app-spinner-id" class="spinner-container">
     <div class="spinner-border text-light" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
