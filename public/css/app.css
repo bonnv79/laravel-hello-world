@@ -98,17 +98,17 @@
   display: none;
 }
 
-.scroll-top-btn-class {
-  position: fixed;
-  bottom: 60px;
-  right: 8px;
-  z-index: 1;
-}
-
-.scroll-down-btn-class {
+.scroll-root-class {
   position: fixed;
   bottom: 8px;
   right: 8px;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+.scroll-root-class button {
+  background: transparent;
+  border: none;
+  margin: 3px;
 }
 

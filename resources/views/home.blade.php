@@ -9,6 +9,12 @@ $pageSize = $posts->perPage();
 $currentPage = $posts->currentPage();
 $size = $posts->lastPage();
 
+$searchTotal = $currentPage * $pageSize;
+
+if($searchTotal > $total) {
+$searchTotal = $total;
+}
+
 @endphp
 
 <x-header :title="$title" />
@@ -17,7 +23,7 @@ $size = $posts->lastPage();
   <x-menu :search="$search" autofocus />
 
   <div class="container app-body">
-    @if($search) <h3>Search Results (<span id="search-total-items">{{ $currentPage * $pageSize }}</span>/{{ $total }})
+    @if($search) <h3>Search Results (<span id="search-total-items">{{ $searchTotal }}</span>/{{ $total }})
     </h3>
     @endif
 
@@ -44,14 +50,16 @@ $size = $posts->lastPage();
   <input id="current-page-id" class="visually-hidden" name="page" value="{{ $currentPage }}">
   @endif
 
+  <div class="scroll-root-class">
+    <button id="scroll-top-btn-id" class="scroll-top-btn-class">
+      <img style="width: 40px;" src="{{ asset('img/up-arrow.png') }}" alt="Img">
+    </button>
+    <button id="scroll-down-btn-id" class="scroll-down-btn-class">
+      <img style="width: 40px;" src="{{ asset('img/down-arrow.png') }}" alt="Img">
+    </button>
   </div>
 
-  <button id="scroll-top-btn-id" class="btn btn-link scroll-top-btn-class">
-    <img style="width: 40px;" src="{{ asset('img/up-arrow.png') }}" alt="Img">
-  </button>
-  <button id="scroll-down-btn-id" class="btn btn-link scroll-down-btn-class">
-    <img style="width: 40px;" src="{{ asset('img/down-arrow.png') }}" alt="Img">
-  </button>
+  </div>
 
   <x-footer />
 </body>
