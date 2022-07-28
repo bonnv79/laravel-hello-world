@@ -16,6 +16,10 @@ $options = config('constants.PAGINATION_OPTIONS');
 @endphp
 
 <div class="pagination-container">
+  <span class="total p-2">
+    Total: {{$total}}
+  </span>
+
   <nav aria-label="Page navigation example">
     <ul class="pagination pagination-sm">
       <li class="page-item @if($prev < 1) disabled @endif">
@@ -46,7 +50,8 @@ $options = config('constants.PAGINATION_OPTIONS');
         </li>
     </ul>
   </nav>
-  <span class="p-2">
+
+  <span>
     <form class="d-flex p-2" role="search" action="{{config('constants.ROUTER_PATH.POSTS.LIST')}}" method="GET">
       <input class="visually-hidden" name="search" value="{{ $search }}">
       <input class="visually-hidden" name="page" value="1">
@@ -57,8 +62,5 @@ $options = config('constants.PAGINATION_OPTIONS');
         @endforeach
       </select>
     </form>
-  </span>
-  <span class="total">
-    Total: {{$total}}
   </span>
 </div>
