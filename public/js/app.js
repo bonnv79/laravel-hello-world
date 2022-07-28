@@ -52,7 +52,7 @@ function handleScrollBottom() {
 }
 
 function getItem(item) {
-  return "\n  <div style=\"width: 33.33%; padding: 8px; position: relative;\">\n    <div class=\"card\">\n      <img src=\"/img/laravel.png\" class=\"card-img-top\" alt=\"Img\">\n      <div class=\"card-body\">\n        <a href=\"/posts/view/".concat(item.id, "\">\n          <h5 class=\"card-title text-truncate\">").concat(item.id, " - ").concat(item.title, "</h5>\n        </a>\n\n        <p class=\"card-text text-truncate\">\n          ").concat(item.description, "\n        </p>\n      </div>\n    </div>  \n  </div>");
+  return "\n  <div class=\"card-item\">\n    <div class=\"card\">\n      <img src=\"/img/laravel.png\" class=\"card-img-top\" alt=\"Img\">\n      <div class=\"card-body\">\n        <a href=\"/posts/view/".concat(item.id, "\">\n          <h5 class=\"card-title text-truncate\">").concat(item.id, " - ").concat(item.title, "</h5>\n        </a>\n\n        <p class=\"card-text text-truncate\">\n          ").concat(item.description, "\n        </p>\n      </div>\n    </div>  \n  </div>");
 }
 
 function handleRes() {

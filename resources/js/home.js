@@ -24,7 +24,7 @@ function handleScrollBottom() {
 
 function getItem(item) {
   return `
-  <div style="width: 33.33%; padding: 8px; position: relative;">
+  <div class="card-item">
     <div class="card">
       <img src="/img/laravel.png" class="card-img-top" alt="Img">
       <div class="card-body">
