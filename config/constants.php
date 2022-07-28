@@ -19,7 +19,7 @@ $BREADCRUMB = [
 ];
 
 return [
-    'PAGE_SIZE' => 9,
+    'PAGE_SIZE' => 36,
     'BREADCRUMB_PATH' => [
       'list' => [
         $BREADCRUMB['HOME'],
@@ -47,7 +47,7 @@ return [
         ]
       ]
     ],
-    'PAGINATION_OPTIONS' => [10, 20, 50, 100],
+    'PAGINATION_OPTIONS' => [10, 20, 50, 100, 500],
     'ROUTER_PATH' => [
       'HOME' => $HOME_PATH,
       'POSTS' => [

@@ -114,6 +114,11 @@
     background: transparent;
     border: none;
     margin: 3px;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

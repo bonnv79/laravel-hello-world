@@ -110,6 +110,10 @@
   background: transparent;
   border: none;
   margin: 3px;
+  opacity: 0.6;
+}
+.scroll-root-class button:hover {
+  opacity: 1;
 }
 
 .spinner-container {
