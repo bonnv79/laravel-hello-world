@@ -3,7 +3,6 @@
 
 @php
 $title = 'Laravel';
-Debugbar::info($posts);
 
 $total = $posts->total();
 $pageSize = $posts->perPage();
