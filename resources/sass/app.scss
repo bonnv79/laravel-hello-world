@@ -97,3 +97,21 @@
   justify-content: flex-end;
   flex-wrap: wrap;
 }
+
+.view-more-btn-hidden {
+  display: none;
+}
+
+.scroll-top-btn-class {
+  position: fixed;
+  bottom: 60px;
+  right: 8px;
+  z-index: 1;
+}
+
+.scroll-down-btn-class {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  z-index: 1;
+}

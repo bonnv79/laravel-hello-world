@@ -2062,6 +2062,8 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./home */ "./resources/js/home.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -2092,6 +2094,117 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/home.js":
+/*!******************************!*\
+  !*** ./resources/js/home.js ***!
+  \******************************/
+/***/ (() => {
+
+"use strict";
+
+
+function handleScrollTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+function handleScrollBottom() {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  });
+}
+
+function getItem(item) {
+  return "\n  <div style=\"width: 33.33%; padding: 8px; position: relative;\">\n    <div class=\"card\">\n      <img src=\"/img/laravel.png\" class=\"card-img-top\" alt=\"Img\">\n      <div class=\"card-body\">\n        <a href=\"/posts/view/".concat(item.id, "\">\n          <h5 class=\"card-title text-truncate\">").concat(item.id, " - ").concat(item.title, "</h5>\n        </a>\n\n        <p class=\"card-text text-truncate\">\n          ").concat(item.description, "\n        </p>\n      </div>\n    </div>  \n  </div>");
+}
+
+function handleRes() {
+  var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var list = document.getElementById("list-post-body");
+
+  if (list) {
+    data === null || data === void 0 ? void 0 : data.forEach(function (item) {
+      list.innerHTML += getItem(item);
+    });
+  }
+}
+
+function handleViewMoreBtn() {
+  var meta = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  if ((meta === null || meta === void 0 ? void 0 : meta.current_page) >= (meta === null || meta === void 0 ? void 0 : meta.last_page)) {
+    var viewMoreElement = document.getElementById("view-more-btn");
+
+    if (viewMoreElement) {
+      viewMoreElement.classList.add("view-more-btn-hidden");
+    }
+  }
+
+  var searchTotalElement = document.getElementById("search-total-items");
+
+  if (searchTotalElement) {
+    searchTotalElement.innerHTML = Math.min((meta === null || meta === void 0 ? void 0 : meta.current_page) * (meta === null || meta === void 0 ? void 0 : meta.per_page), meta === null || meta === void 0 ? void 0 : meta.total);
+  }
+}
+
+function handleViewMore() {
+  var search = '';
+  var page = 1;
+  var searchInputElement = document.getElementById("search-input-id");
+
+  if (searchInputElement) {
+    search = searchInputElement.value;
+  }
+
+  var currentPageElement = document.getElementById("current-page-id");
+
+  if (currentPageElement) {
+    page = Number(currentPageElement.value) + 1;
+  }
+
+  var params = new URLSearchParams({
+    search: search,
+    page: page
+  });
+  var url = '/api/list?' + params;
+  fetch(url).then(function (response) {
+    return response.json();
+  }).then(function (res) {
+    handleRes(res === null || res === void 0 ? void 0 : res.data);
+    handleViewMoreBtn(res === null || res === void 0 ? void 0 : res.meta);
+  })["catch"](function (error) {
+    console.error("Error: ", error);
+  })["finally"](function () {
+    currentPageElement.value = page;
+    handleScrollBottom();
+  });
+}
+
+window.onload = function () {
+  var viewMoreElement = document.getElementById("view-more-btn");
+
+  if (viewMoreElement) {
+    viewMoreElement.addEventListener("click", handleViewMore);
+  }
+
+  var scrollTopElement = document.getElementById("scroll-top-btn-id");
+
+  if (scrollTopElement) {
+    scrollTopElement.addEventListener("click", handleScrollTop);
+  }
+
+  var scrollBottomElement = document.getElementById("scroll-down-btn-id");
+
+  if (scrollBottomElement) {
+    scrollBottomElement.addEventListener("click", handleScrollBottom);
+  }
+};
 
 /***/ }),
 

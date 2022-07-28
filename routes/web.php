@@ -43,3 +43,5 @@ Route::post(config('constants.ROUTER_PATH.POSTS.EDIT').'/{id}', [App\Http\Contro
 Route::get(config('constants.ROUTER_PATH.POSTS.VIEW').'/{id}', [App\Http\Controllers\Api\PostController::class, 'view']);
 
 Route::get(config('constants.ROUTER_PATH.POSTS.LIST'), [App\Http\Controllers\Api\PostController::class, 'filter']);
+
+Route::get('/api/list', [App\Http\Controllers\Api\PostController::class, 'apiList']);

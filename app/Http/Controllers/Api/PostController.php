@@ -119,13 +119,20 @@ class PostController extends Controller
 
     public function search(Request $request){
         $search = $request->input('search');
+        $page = $request->input('page') ? $request->input('page') : 1;
+        $pageSize = $request->input('pageSize') ? $request->input('pageSize') : config('constants.PAGE_SIZE');
+
+        $intPage = (int)$page;
+        $intPageSize = (int)$pageSize;
         
         // $posts = Post::where('title', 'LIKE', "%$search%")->orderBy('id', 'DESC')->get();
         $posts = Post::query()
                     ->where('title', 'LIKE', "%{$search}%")
                     ->orWhere('description', 'LIKE', "%{$search}%")
                     ->orderBy('id', 'DESC')
-                    ->get();
+                    ->paginate(
+                        $perPage = $intPageSize, $columns = ['*'], $pageName = 'posts', $currentPage = $intPage
+                    );
         
         // dd($search);
         return view('home', compact('posts', 'search'));
@@ -169,5 +176,30 @@ class PostController extends Controller
                     );
         // dd($page, $pageSize);
         return view('post.list', compact('posts', 'search'));
+    }
+
+    public function apiList(Request $request)
+    {
+        $reqBody = $request->all();
+       
+        $search = $reqBody['search'] ? $reqBody['search'] : '';
+        $page = $reqBody['page'] ? $reqBody['page'] : 1;
+        $pageSize = config('constants.PAGE_SIZE');
+
+        // dd($reqBody, $reqBody['search'], $reqBody['page']);
+
+        $intPage = (int)$page;
+        $intPageSize = (int)$pageSize;
+
+        $posts = Post::query()
+                    ->where('title', 'LIKE', "%{$search}%")
+                    ->orWhere('description', 'LIKE', "%{$search}%")
+                    ->orderBy('id', 'DESC')
+                    ->paginate(
+                        $perPage = $intPageSize, $columns = ['*'], $pageName = 'posts', $currentPage = $intPage
+                    );
+
+        // return response(null, 204);
+        return PostResource::collection($posts);
     }
 }

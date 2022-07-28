@@ -19,6 +19,7 @@ $BREADCRUMB = [
 ];
 
 return [
+    'PAGE_SIZE' => 36,
     'BREADCRUMB_PATH' => [
       'list' => [
         $BREADCRUMB['HOME'],
