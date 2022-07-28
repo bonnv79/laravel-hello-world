@@ -21,6 +21,22 @@ __webpack_require__(/*! ./home */ "./resources/js/home.js");
 "use strict";
 
 
+function openLoading() {
+  var element = document.getElementById("app-spinner-id");
+
+  if (element) {
+    element.style.visibility = "visible";
+  }
+}
+
+function closeLoading() {
+  var element = document.getElementById("app-spinner-id");
+
+  if (element) {
+    element.style.visibility = "hidden";
+  }
+}
+
 function handleScrollTop() {
   window.scrollTo({
     top: 0,
@@ -70,6 +86,7 @@ function handleViewMoreBtn() {
 }
 
 function handleViewMore() {
+  openLoading();
   var search = '';
   var page = 1;
   var searchInputElement = document.getElementById("search-input-id");
@@ -99,6 +116,7 @@ function handleViewMore() {
   })["finally"](function () {
     currentPageElement.value = page;
     handleScrollBottom();
+    closeLoading();
   });
 }
 
