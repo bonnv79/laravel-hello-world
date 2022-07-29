@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,12 @@ Route::get(config('constants.ROUTER_PATH.POSTS.VIEW').'/{id}', [App\Http\Control
 Route::get(config('constants.ROUTER_PATH.POSTS.LIST'), [App\Http\Controllers\Api\PostController::class, 'filter']);
 
 Route::get('/api/list', [App\Http\Controllers\Api\PostController::class, 'apiList']);
+
+//For adding an image
+Route::get('/add-image', [ImageUploadController::class,'addImage'])->name('images.add');
+
+//For storing an image
+Route::post('/store-image', [ImageUploadController::class,'storeImage'])->name('images.store');
+
+//For showing an image
+Route::get('/view-image', [ImageUploadController::class,'viewImage'])->name('images.view');

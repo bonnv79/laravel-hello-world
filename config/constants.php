@@ -6,6 +6,8 @@ $CREATE_PATH = '/posts/create';
 $UPDATE_PATH = '/posts/update';
 $DELETE_PATH = '/posts/delete';
 $VIEW_PATH = '/posts/view';
+$VIEW_IMAGE_PATH = '/view-image';
+$ADD_IMAGE_PATH = '/add-image';
 
 $BREADCRUMB = [
   'HOME' => [
@@ -15,6 +17,10 @@ $BREADCRUMB = [
   'POST_LIST' => [
     'name' => 'Post List', 
     'path' => $LIST_PATH
+  ],
+  'VIEW_IMAGE' => [
+    'name' => 'View Image', 
+    'path' => $VIEW_IMAGE_PATH
   ],
 ];
 
@@ -45,6 +51,17 @@ return [
         [
           'name' => 'View'
         ]
+        ],
+      'image-view' => [
+        $BREADCRUMB['HOME'],
+        $BREADCRUMB['VIEW_IMAGE'],
+      ],
+      'image-add' => [
+        $BREADCRUMB['HOME'],
+        $BREADCRUMB['VIEW_IMAGE'],
+        [
+          'name' => 'Add'
+        ]
       ]
     ],
     'PAGINATION_OPTIONS' => [10, 20, 50, 100, 500],
@@ -56,6 +73,20 @@ return [
         'EDIT' => $UPDATE_PATH,
         'REMOVE' => $DELETE_PATH,
         'VIEW' => $VIEW_PATH
+      ],
+      'IMAGE' => [
+        'VIEW' => $VIEW_IMAGE_PATH,
+        'ADD' => $ADD_IMAGE_PATH,
       ]
     ],
+    'MENUS' => [
+      [
+        'name' => 'Post List', 
+        'path' => $LIST_PATH,
+      ],
+      [
+        'name' => 'Image List', 
+        'path' => $VIEW_IMAGE_PATH,
+      ]
+    ]
 ];
