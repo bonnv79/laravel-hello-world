@@ -130,6 +130,15 @@
   visibility: hidden;
 }
 
+.search-results {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60px;
+  z-index: 1;
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
 .card-item {
   padding: 8px;
   position: relative;

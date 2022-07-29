@@ -23,7 +23,8 @@ $searchTotal = $total;
   <x-menu :search="$search" autofocus />
 
   <div class="container app-body">
-    @if($search) <h3>Search Results (<span id="search-total-items">{{ $searchTotal }}</span>/{{ $total }})
+    @if($search) <h3 class="search-results">Search Results (<span
+        id="search-total-items">{{ $searchTotal }}</span>/{{ $total }})
     </h3>
     @endif
 
@@ -44,7 +45,12 @@ $searchTotal = $total;
     @endif
 
     @if($currentPage < $size) <div style="text-align: center;" class="p-3">
-      <button id="view-more-btn" class="btn btn-outline-success">View More</button>
+      <button id="view-more-btn" class="btn btn-outline-success">
+        <span>View More</span>
+        @if(!$search) (<span id="search-total-items">{{ $searchTotal }}</span><span>/{{ $total }}</span>)
+        @endif
+
+      </button>
   </div>
   <input id="search-input-id" class="visually-hidden" name="search" value="{{ $search }}">
   <input id="current-page-id" class="visually-hidden" name="page" value="{{ $currentPage }}">
