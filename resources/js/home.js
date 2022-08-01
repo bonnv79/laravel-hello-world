@@ -33,14 +33,13 @@ function getItem(item) {
           <h5 class="card-title text-truncate">${item.id} - ${item.title}</h5>
         </a>
 
+        <p class="card-text text-truncate">
+          ${item.description1 || ''}
+        </p>
       </div>
     </div>  
   </div>`;
 }
-
-{/* <p class="card-text text-truncate">
-${item.description}
-</p> */}
 
 function handleRes(data = []) {
   var list = document.getElementById("list-post-body");
