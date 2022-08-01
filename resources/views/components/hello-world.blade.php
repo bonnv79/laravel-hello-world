@@ -6,11 +6,13 @@
   @endphp
 
   <div {{ $attributes->merge(["class"=>"card"]) }}>
-    @if(strpos($image, 'http') !== false)
-    <img src="{{ $image }}" style="width: 100%; height: 150px;" class="card-img-top" alt="Img">
-    @else
-    <img src="{{ asset('img/laravel.png') }}" style="width: 100%; height: 150px;" class="card-img-top" alt="Img">
-    @endif
+    <a href="{{ url($urlView) }}">
+      @if(strpos($image, 'http') !== false)
+      <img src="{{ $image }}" style="width: 100%; height: 150px;" class="card-img-top" alt="Img">
+      @else
+      <img src="{{ asset('img/laravel.png') }}" style="width: 100%; height: 150px;" class="card-img-top" alt="Img">
+      @endif
+    </a>
 
     <div class="card-body">
       <a href="{{ url($urlView) }}">

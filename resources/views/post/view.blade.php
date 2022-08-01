@@ -11,14 +11,14 @@ $title = $post->title;
   <x-menu />
   <x-breadcrumb :menu="config('constants.BREADCRUMB_PATH.view')" />
 
-  <div class="container">
+  <div class="container" style="max-width: 1080px;">
     <h1>{{ $title }}</h1>
 
     <div class="card" style="width: 100%;">
       @if(strpos($post->image, 'http') !== false)
-      <img src="{{ $post->image }}" style="width: 100%; height: 40vh;" class="card-img-top" alt="Img">
+      <img src="{{ $post->image }}" style="width: 100%;" class="card-img-top" alt="Img">
       @else
-      <img src="{{ asset('img/laravel.png') }}" style="width: 100%; height: 30vh;" class="card-img-top" alt="Img">
+      <img src="{{ asset('img/laravel.png') }}" style="width: 100%;" class="card-img-top" alt="Img">
       @endif
 
       <div class="card-body">
