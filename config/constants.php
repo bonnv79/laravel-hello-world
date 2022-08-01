@@ -8,6 +8,7 @@ $DELETE_PATH = '/posts/delete';
 $VIEW_PATH = '/posts/view';
 $VIEW_IMAGE_PATH = '/view-image';
 $ADD_IMAGE_PATH = '/add-image';
+$DELETE_IMAGE_PATH = '/delete-image';
 
 $BREADCRUMB = [
   'HOME' => [
@@ -77,6 +78,7 @@ return [
       'IMAGE' => [
         'VIEW' => $VIEW_IMAGE_PATH,
         'ADD' => $ADD_IMAGE_PATH,
+        'REMOVE' => $DELETE_IMAGE_PATH,
       ]
     ],
     'MENUS' => [

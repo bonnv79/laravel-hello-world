@@ -28,10 +28,14 @@ $title = 'View All Image';
           <th scope="col" style="width: 100px;">Image ID</th>
           <th scope="col" style="width: 250px;">Image</th>
           <th scope="col">URL</th>
+          <th scope="col" style="width: 150px;">Action</th>
         </tr>
       </thead>
       <tbody>
         @foreach($imageData as $data)
+        @php
+        $url = config('constants.ROUTER_PATH.IMAGE.REMOVE')."/$data->id";
+        @endphp
         <tr>
           <td>{{$data->id}}</td>
           <td>
@@ -42,6 +46,9 @@ $title = 'View All Image';
             @endif
           </td>
           <td>{{$data->image}}</td>
+          <td class="center">
+            <a class="p-2" href="{{ url($url) }}">Delete</a>
+          </td>
         </tr>
         @endforeach
       </tbody>

@@ -55,3 +55,5 @@ Route::post('/store-image', [ImageUploadController::class,'storeImage'])->name('
 
 //For showing an image
 Route::get('/view-image', [ImageUploadController::class,'viewImage'])->name('images.view');
+
+Route::get(config('constants.ROUTER_PATH.IMAGE.REMOVE').'/{id}', [ImageUploadController::class, 'deleteImage'])->name('images.delete');

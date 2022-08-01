@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Postimage;
 
+use Illuminate\Support\Facades\File;
+
 class ImageUploadController extends Controller
 {
     //Add image
@@ -34,5 +36,18 @@ class ImageUploadController extends Controller
       // return view('view_image');
       $imageData= Postimage::all();
       return view('Image.view_image', compact('imageData'));
+    }
+
+    public function deleteImage($id){
+      $Image = Postimage::findOrFail($id);
+      $image_path = 'public/Image/'.$Image->image;
+      
+      if(File::exists($image_path)) {
+        File::delete($image_path);
+      }
+
+      $Image->delete();
+      
+      return redirect()->route('images.view');
     }
 }
