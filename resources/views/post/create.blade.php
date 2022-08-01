@@ -29,11 +29,13 @@ $title = 'Create Post';
         <label for="editor" class="form-label">Description*</label>
         <textarea id="editor" class="form-control" name="description"></textarea>
       </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="mb-3 text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </form>
   </div>
 
+  <x-scroll-top />
   <x-footer />
 </body>
 

@@ -30,11 +30,13 @@ $title = 'Edit Post';
         <label for="exampleFormControlTextarea1" class="form-label">Description*</label>
         <textarea id="editor" class="form-control" name="description">{{ $post->description }}</textarea>
       </div>
-
-      <button type="submit" class="btn btn-primary">Save</button>
+      <div class="mb-3 text-center">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
     </form>
   </div>
 
+  <x-scroll-top />
   <x-footer />
 </body>
 

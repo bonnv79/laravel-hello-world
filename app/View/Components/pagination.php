@@ -11,18 +11,20 @@ class pagination extends Component
     public $pageSize; // new property
     public $currentPage; // new property
     public $search; // new property
+    public $sort; // new property
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($total =0, $size = 0, $pageSize = 0, $currentPage = 1, $search = '')
+    public function __construct($total =0, $size = 0, $pageSize = 0, $currentPage = 1, $search = '', $sort = '')
     {
         $this->total=$total;
         $this->size=$size;
         $this->pageSize=$pageSize;
         $this->currentPage=$currentPage;
         $this->search=$search;
+        $this->sort=$sort;
     }
 
     /**

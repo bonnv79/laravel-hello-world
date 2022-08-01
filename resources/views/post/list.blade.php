@@ -22,6 +22,17 @@ $size = $posts->lastPage();
       </div>
       <div class="col text-end post-list-right-action">
         <form class="d-flex p-2" role="search" action="{{config('constants.ROUTER_PATH.POSTS.LIST')}}" method="GET">
+
+          <div class="btn-group btn-group-sm me-2" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="sort" id="btnradio2" autocomplete="off" value="DESC"
+              @if($sort=='DESC' ) checked @endif onchange="this.form.submit()">
+            <label class="btn btn-outline-primary" for="btnradio2">Desc</label>
+
+            <input type="radio" class="btn-check" name="sort" id="btnradio1" autocomplete="off" value="ASC"
+              @if($sort=='ASC' ) checked @endif onchange="this.form.submit()">
+            <label class="btn btn-outline-primary" for="btnradio1">Asc</label>
+          </div>
+
           <input class="form-control me-2 form-control-sm" type="search" placeholder="Search" aria-label="Search"
             name="search" value="{{ $search }}" autofocus>
           <input class="visually-hidden" name="page" value="1">
@@ -82,7 +93,8 @@ $size = $posts->lastPage();
         </tbody>
       </table>
     </div>
-    <x-pagination :total="$total" :size="$size" :pageSize="$pageSize" :currentPage="$currentPage" :search="$search" />
+    <x-pagination :total="$total" :size="$size" :pageSize="$pageSize" :currentPage="$currentPage" :search="$search"
+      :sort="$sort" />
     @endif
   </div>
 
