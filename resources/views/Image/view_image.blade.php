@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 @php
-$title = 'View all image';
+$title = 'View All Image';
 @endphp
 
 <x-header :title="$title" />
@@ -25,8 +25,9 @@ $title = 'View all image';
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Image id</th>
-          <th scope="col">Image</th>
+          <th scope="col" style="width: 100px;">Image ID</th>
+          <th scope="col" style="width: 250px;">Image</th>
+          <th scope="col">URL</th>
         </tr>
       </thead>
       <tbody>
@@ -34,8 +35,13 @@ $title = 'View all image';
         <tr>
           <td>{{$data->id}}</td>
           <td>
+            @if(strpos($data->image, 'http') !== false)
+            <img src="{{ $data->image }}" style="height: 100px; width: 150px;">
+            @else
             <img src="{{ url('public/Image/'.$data->image) }}" style="height: 100px; width: 150px;">
+            @endif
           </td>
+          <td>{{$data->image}}</td>
         </tr>
         @endforeach
       </tbody>

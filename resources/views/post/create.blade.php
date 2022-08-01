@@ -25,6 +25,10 @@ $title = 'Create Post';
         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>
       </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput2" class="form-label">Image</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Input..." name="image">
+      </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>

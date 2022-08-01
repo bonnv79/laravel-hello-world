@@ -32,7 +32,7 @@ $searchTotal = $total;
     @else
     <div class="row" id="list-post-body">
       @foreach($posts as $item)
-      <x-hello-world class='danger' :id='$item->id' :post-id='$item->id' :title="$item->title">
+      <x-hello-world class='danger' :id='$item->id' :post-id='$item->id' :title="$item->title" :image="$item->image">
         {{$item->description}}
 
         <x-slot name='anotherslot'>

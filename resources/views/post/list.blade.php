@@ -42,8 +42,10 @@ $size = $posts->lastPage();
           <tr>
             <th scope="col">#</th>
             <th scope="col">ID</th>
+            <th scope="col">Image</th>
             <th scope="col">Title</th>
             <th scope="col">Description</th>
+            <th scope="col">Image URL</th>
             <th scope="col" class="center">Action</th>
           </tr>
         </thead>
@@ -54,10 +56,19 @@ $size = $posts->lastPage();
           $urlUpdate = config('constants.ROUTER_PATH.POSTS.EDIT')."/$item->id";
           @endphp
           <tr>
-            <th scope="row">{{ ($currentPage - 1) * $pageSize + $key + 1 }}</th>
+            <td scope="row">{{ ($currentPage - 1) * $pageSize + $key + 1 }}</td>
             <td>{{ $item->id }}</td>
+            <td>
+              @if(strpos($item->image, 'http') !== false)
+              <img src="{{ $item->image }}" style="width: 50px; height: 50px;" class="card-img-top" alt="Img">
+              @else
+              <img src="{{ asset('img/laravel.png') }}" style="width: 50px; height: 50px;" class="card-img-top"
+                alt="Img">
+              @endif
+            </td>
             <td title="{{ $item->title }}">{{ $item->title }}</td>
             <td title="{{ $item->description }}">{{ $item->description }}</td>
+            <td title="{{ $item->image }}">{{ $item->image }}</td>
             <td class="center">
               <a class="p-2" href="{{ url($urlUpdate) }}">Edit</a>
               <a class="p-2" href="{{ url($url) }}">Delete</a>

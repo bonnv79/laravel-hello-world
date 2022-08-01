@@ -26,6 +26,11 @@ $title = 'Edit Post';
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
           required>{{ $post->description }}</textarea>
       </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput2" class="form-label">Image</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Input..." name="image"
+          value="{{ $post->image }}">
+      </div>
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
   </div>

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 @php
-$title = 'View Post';
+$title = $post->title;
 @endphp
 
 <x-header :title="$title" />
@@ -15,11 +15,13 @@ $title = 'View Post';
     <h1>{{ $title }}</h1>
 
     <div class="card" style="width: 100%;">
-      <img style="height: 30vh;" src="{{ asset('img/laravel.png') }}" class="card-img-top" alt="Img">
+      @if(strpos($post->image, 'http') !== false)
+      <img src="{{ $post->image }}" style="width: 100%; height: 40vh;" class="card-img-top" alt="Img">
+      @else
+      <img src="{{ asset('img/laravel.png') }}" style="width: 100%; height: 30vh;" class="card-img-top" alt="Img">
+      @endif
+
       <div class="card-body">
-        <h3 class="card-title">
-          {{ $post->title }}
-        </h3>
         <p class="card-text">
           {{ $post->description }}
         </p>

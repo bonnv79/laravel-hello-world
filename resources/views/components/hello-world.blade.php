@@ -6,7 +6,12 @@
   @endphp
 
   <div {{ $attributes->merge(["class"=>"card"]) }}>
-    <img src="{{ asset('img/laravel.png') }}" class="card-img-top" alt="Img">
+    @if(strpos($image, 'http') !== false)
+    <img src="{{ $image }}" style="width: 100%; height: 150px;" class="card-img-top" alt="Img">
+    @else
+    <img src="{{ asset('img/laravel.png') }}" style="width: 100%; height: 150px;" class="card-img-top" alt="Img">
+    @endif
+
     <div class="card-body">
       <a href="{{ url($urlView) }}">
         <h5 class="card-title text-truncate">{{$postId}} - {{$title}}</h5>

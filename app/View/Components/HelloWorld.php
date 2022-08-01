@@ -8,15 +8,17 @@ class HelloWorld extends Component
 {
     public $title; // new property
     public $postId;// new property
+    public $image;// new property
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title = '', $postId = '')
+    public function __construct($title = '', $postId = '', $image = '')
     {
         $this->title=$title;
         $this->postId=$postId;
+        $this->image=$image;
     }
 
     /**
