@@ -140,6 +140,13 @@
   font-weight: bolder;
 }
 
+.ck-editor__top {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1 !important;
+}
+
 .card-item {
   padding: 8px;
   position: relative;

@@ -23,8 +23,7 @@ $title = 'Edit Post';
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
-          required>{{ $post->description }}</textarea>
+        <textarea id="editor" class="form-control" name="description">{{ $post->description }}</textarea>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlInput2" class="form-label">Image</label>
@@ -37,5 +36,13 @@ $title = 'Edit Post';
 
   <x-footer />
 </body>
+
+<script>
+ClassicEditor
+  .create(document.querySelector('#editor'))
+  .catch(error => {
+    console.error(error);
+  });
+</script>
 
 </html>

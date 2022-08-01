@@ -52,7 +52,14 @@ function handleScrollBottom() {
 }
 
 function getItem(item) {
-  return "\n  <div class=\"card-item\">\n    <div class=\"card\">\n      <img src=\"/img/laravel.png\" class=\"card-img-top\" alt=\"Img\">\n      <div class=\"card-body\">\n        <a href=\"/posts/view/".concat(item.id, "\">\n          <h5 class=\"card-title text-truncate\">").concat(item.id, " - ").concat(item.title, "</h5>\n        </a>\n\n        <p class=\"card-text text-truncate\">\n          ").concat(item.description, "\n        </p>\n      </div>\n    </div>  \n  </div>");
+  var img = item.image ? item.image : '/img/laravel.png';
+  return "\n  <div class=\"card-item\">\n    <div class=\"card\">\n      <img src=\"".concat(img, "\" style=\"width: 100%; height: 150px;\" class=\"card-img-top\" alt=\"Img\">\n      <div class=\"card-body\">\n        <a href=\"/posts/view/").concat(item.id, "\">\n          <h5 class=\"card-title text-truncate\">").concat(item.id, " - ").concat(item.title, "</h5>\n        </a>\n\n      </div>\n    </div>  \n  </div>");
+}
+
+{
+  /* <p class="card-text text-truncate">
+  ${item.description}
+  </p> */
 }
 
 function handleRes() {

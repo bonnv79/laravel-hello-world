@@ -23,22 +23,24 @@ function handleScrollBottom() {
 }
 
 function getItem(item) {
+  const img = item.image ? item.image : '/img/laravel.png';
   return `
   <div class="card-item">
     <div class="card">
-      <img src="/img/laravel.png" class="card-img-top" alt="Img">
+      <img src="${img}" style="width: 100%; height: 150px;" class="card-img-top" alt="Img">
       <div class="card-body">
         <a href="/posts/view/${item.id}">
           <h5 class="card-title text-truncate">${item.id} - ${item.title}</h5>
         </a>
 
-        <p class="card-text text-truncate">
-          ${item.description}
-        </p>
       </div>
     </div>  
   </div>`;
 }
+
+{/* <p class="card-text text-truncate">
+${item.description}
+</p> */}
 
 function handleRes(data = []) {
   var list = document.getElementById("list-post-body");

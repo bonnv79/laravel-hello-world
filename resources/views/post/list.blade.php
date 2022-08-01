@@ -67,7 +67,11 @@ $size = $posts->lastPage();
               @endif
             </td>
             <td title="{{ $item->title }}">{{ $item->title }}</td>
-            <td title="{{ $item->description }}">{{ $item->description }}</td>
+            <td title="{{ $item->description }}">
+              <!-- <x-html-entity-decode :value="$item->description" /> -->
+              <!-- {!! html_entity_decode($item->description) !!} -->
+              {{ $item->description }}
+            </td>
             <td title="{{ $item->image }}">{{ $item->image }}</td>
             <td class="center">
               <a class="p-2" href="{{ url($urlUpdate) }}">Edit</a>

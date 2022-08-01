@@ -33,7 +33,7 @@ $searchTotal = $total;
     <div class="row" id="list-post-body">
       @foreach($posts as $item)
       <x-hello-world class='danger' :id='$item->id' :post-id='$item->id' :title="$item->title" :image="$item->image">
-        {{$item->description}}
+        <!-- <x-html-entity-decode :value="$item->description" /> -->
 
         <x-slot name='anotherslot'>
           Wow! i am another slot
@@ -56,20 +56,9 @@ $searchTotal = $total;
   <input id="current-page-id" class="visually-hidden" name="page" value="{{ $currentPage }}">
   @endif
 
-  <div class="scroll-root-class">
-    <button id="scroll-top-btn-id">
-      <img style="width: 40px;" src="{{ asset('img/up-arrow.png') }}" alt="Img">
-    </button>
-    <button id="scroll-down-btn-id">
-      <img style="width: 40px;" src="{{ asset('img/down-arrow.png') }}" alt="Img">
-    </button>
-  </div>
+  <x-scroll-top />
 
-  <div id="app-spinner-id" class="spinner-container">
-    <div class="spinner-border text-light" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
+  <x-loading />
 
   </div>
 

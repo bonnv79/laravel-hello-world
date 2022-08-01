@@ -22,12 +22,12 @@ $title = $post->title;
       @endif
 
       <div class="card-body">
-        <p class="card-text">
-          {{ $post->description }}
-        </p>
+        <x-html-entity-decode :value="$post->description" />
       </div>
     </div>
   </div>
+
+  <x-scroll-top />
 
   <x-footer />
 </body>

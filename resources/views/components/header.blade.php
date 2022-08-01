@@ -20,6 +20,8 @@
 
   <script src="{{ asset('js/app.js') }}"></script>
 
+  <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+
   <!-- Styles -->
   <style>
   html {
