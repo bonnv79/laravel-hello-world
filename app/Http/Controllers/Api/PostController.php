@@ -39,10 +39,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        for($i = 1; $i < 100; $i++) {
-            $posts = Post::create($request->all());
-        }
-        
+        $posts = Post::create($request->all());
         
         // return new PostResource($posts);
         // return view('post.create', ['res' => new PostResource($posts)]);
