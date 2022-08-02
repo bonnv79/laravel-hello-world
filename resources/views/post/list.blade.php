@@ -7,6 +7,8 @@ $total = $posts->total();
 $pageSize = $posts->perPage();
 $currentPage = $posts->currentPage();
 $size = $posts->lastPage();
+
+$columns = config('constants.POST.COLUMNS');
 @endphp
 
 <x-header :title="$title" />
@@ -22,6 +24,13 @@ $size = $posts->lastPage();
       </div>
       <div class="col text-end post-list-right-action">
         <form class="d-flex p-2" role="search" action="{{config('constants.ROUTER_PATH.POSTS.LIST')}}" method="GET">
+
+          <select class="form-select form-select-sm me-2" aria-label=".form-select-sm example" name="sortBy"
+            onchange="this.form.submit()">
+            @foreach($columns as $col)
+            <option value="{{ $col['key'] }}" @if($col['key']==$sortBy) selected @endif>{{ $col['label'] }}</option>
+            @endforeach
+          </select>
 
           <div class="btn-group btn-group-sm me-2" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="sort" id="btnradio2" autocomplete="off" value="DESC"
@@ -52,11 +61,12 @@ $size = $posts->lastPage();
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">ID</th>
             <th scope="col">Image</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Image URL</th>
+
+            @foreach($columns as $col)
+            <th scope="col">{{ $col['label'] }}</th>
+            @endforeach
+
             <th scope="col" class="center">Action</th>
           </tr>
         </thead>
@@ -68,7 +78,6 @@ $size = $posts->lastPage();
           @endphp
           <tr>
             <td scope="row">{{ ($currentPage - 1) * $pageSize + $key + 1 }}</td>
-            <td>{{ $item->id }}</td>
             <td>
               @if(strpos($item->image, 'http') !== false)
               <img src="{{ $item->image }}" style="width: 50px; height: 50px;" class="card-img-top" alt="Img">
@@ -77,13 +86,11 @@ $size = $posts->lastPage();
                 alt="Img">
               @endif
             </td>
-            <td title="{{ $item->title }}">{{ $item->title }}</td>
-            <td title="{{ $item->description }}">
-              <!-- <x-html-entity-decode :value="$item->description" /> -->
-              <!-- {!! html_entity_decode($item->description) !!} -->
-              {{ $item->description }}
-            </td>
-            <td title="{{ $item->image }}">{{ $item->image }}</td>
+
+            @foreach($columns as $col)
+            <td title="{{ $item[$col['key']] }}">{{ $item[$col['key']] }}</td>
+            @endforeach
+
             <td class="center">
               <a class="p-2" href="{{ url($urlUpdate) }}">Edit</a>
               <a class="p-2" href="{{ url($url) }}">Delete</a>

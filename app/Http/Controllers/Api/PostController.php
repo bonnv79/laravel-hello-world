@@ -159,6 +159,7 @@ class PostController extends Controller
         $page = $request->input('page') ? $request->input('page') : 1;
         $pageSize = $request->input('pageSize') ? $request->input('pageSize') : 10;
         $sort = $request->input('sort') ? $request->input('sort') : 'DESC';
+        $sortBy = $request->input('sortBy') ? $request->input('sortBy') : 'id';
 
         $intPage = (int)$page;
         $intPageSize = (int)$pageSize;
@@ -171,12 +172,12 @@ class PostController extends Controller
         $posts = Post::query()
                     ->where('title', 'LIKE', "%{$search}%")
                     ->orWhere('description', 'LIKE', "%{$search}%")
-                    ->orderBy('id', $sort)
+                    ->orderBy($sortBy, $sort)
                     ->paginate(
                         $perPage = $intPageSize, $columns = ['*'], $pageName = 'posts', $currentPage = $intPage
                     );
         // dd($page, $pageSize);
-        return view('post.list', compact('posts', 'search', 'sort'));
+        return view('post.list', compact('posts', 'search', 'sort', 'sortBy'));
     }
 
     public function apiList(Request $request)

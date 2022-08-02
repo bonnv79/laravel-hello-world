@@ -90,5 +90,29 @@ return [
         'name' => 'Image List', 
         'path' => $VIEW_IMAGE_PATH,
       ]
+    ],
+    'POST' => [
+      'COLUMNS' => [
+        [
+          'key' => 'id',
+          'label' => 'ID'
+        ],
+        [
+          'key' => 'title',
+          'label' => 'Title'
+        ],
+        [
+          'key' => 'description',
+          'label' => 'Description'
+        ],
+        [
+          'key' => 'created_at',
+          'label' => 'Created At'
+        ],
+        [
+          'key' => 'image',
+          'label' => 'Image Path'
+        ],
+      ]
     ]
 ];
